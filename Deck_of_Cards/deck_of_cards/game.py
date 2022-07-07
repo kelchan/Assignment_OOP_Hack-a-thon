@@ -47,7 +47,7 @@ class Game:
             if player.isUser:
                 player.show_hand( player.cards )
             else:
-                hand = player.cards[:] #[1:]  
+                hand = player.cards[:][1:]  
                 player.show_hand( hand )
 
     def take_turn( self ):
@@ -67,10 +67,10 @@ class Game:
                     print( "1: Hit" )
                     print( "2: Stand" )
                     move = input( "Select an option " )
-                if move == "1":
+                if int(move) == 1:
                     self.deal_cards( player )
                     player.standing = True if player.count > 21 else False
-                elif move == "2":
+                elif int(move) == 2:
                     player.standing = True
 
 
